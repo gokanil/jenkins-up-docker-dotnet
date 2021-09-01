@@ -12,7 +12,7 @@ Kurulum Gereksinimleri:
 Kurulumdan önce jobları test edebilmemiz için github'ta ve docker hub'ta bir repository oluşturmanız gerekiyor. \
 Otomatik Kurulum:
 <pre>
- - 'all-in-one-setup.bat' dosyasını çalıştırın. Sizden github repository adresi ve docker hub repository ismi isteyecektir. Burada Github adresini oluşturacağı bir örnek mvc projesini hesabınıza push yapmak için kullanacaktır. Docker hub repository ismi ise oluşturulan projenin docker-compose.yml dosyası için gereklidir.
+ - 'all-in-one-setup.bat' dosyasını çalıştırın. Sizden github repository adresi ve docker hub repository ismi isteyecektir. Burada Github adresini, oluşturacağı bir örnek mvc projesini hesabınıza push etmek için kullanacaktır. Docker hub repository ismi ise oluşturulan projenin docker-compose.yml dosyası için gereklidir.
     örneğin => github: 'https://github.com/gokanil/test.git' ve dockerhub: 'gokanil/test'.
  - Kurulum sırasında bir sh penceresi açılacaktır. 'done' yazısını gördüğünüzde enter tuşuna basarak kuruluma devam edin.
  - Yine kurulum sırasında 'ngrok' isminde yeni bir konsol penceresi daha açılacaktır. Bu localinizdeki bir jenkins sunucusunu github webhook ile iletişim kurmasını sağlıyacak.
