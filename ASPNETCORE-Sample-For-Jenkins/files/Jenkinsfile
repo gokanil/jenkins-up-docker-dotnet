@@ -1,0 +1,51 @@
+
+pipeline {
+      environment {
+    dotnet = './sample-mvc'
+  }
+        agent any
+
+    stages {
+        
+        stage('Clone sources') {
+            steps {
+                     git branch: 'main',
+            url: 'https://github.com/gokanil/test.git'
+            }
+        }
+        stage('Restore') {
+            steps {
+                sh 'dotnet restore $dotnet'
+            }
+        }
+        stage('Build') {
+            steps {
+                    sh 'dotnet build $dotnet'
+                
+            }
+        }
+        stage('Test') {
+            steps {
+                    sh 'dotnet test $dotnet'
+            }
+        }
+                stage('build and push') {
+            steps {
+                //sh 'docker tag jenkins-test_jenkins speed12322/test'
+                //sh 'docker build --tag speed12322/test .'
+                                    script {
+                        docker.withRegistry('https://registry-1.docker.io/v2/', '39892a7d-9e99-46a9-89a3-a4cd2c253075'){
+                            def dockerImage = docker.image('speed12322/test')
+                            dockerImage.push()
+                        }
+                    }
+            }
+        }
+        
+                        stage('deploy') {
+            steps {
+                    sh "docker-compose up --build -d"
+            }
+        }
+    }
+}
