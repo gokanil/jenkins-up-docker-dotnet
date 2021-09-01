@@ -23,3 +23,6 @@ Kurulum:
    Kopyalayın ve yapıştırın devam edelim.
  - Konsol kurulum penceresini artık kapatabiliriz. Jenkins adresinden kuruluma devam edelim.
  - Karşınızda oluşturduğum bazı jobları görmeniz gerekiyor. Öncelikle test-docker-version jobunu çalıştıralım. Açın ve şimdi yapılandıra basın. Eğer hata yok ise Kurulum tamamdır.    Diğer joblarıda test etmeye başlayabiliriz.
+ 
+Github WebHook ekleme(https://github.com/[USER]/test/settings/hooks):
+![Alt text](/images/git2.png)
