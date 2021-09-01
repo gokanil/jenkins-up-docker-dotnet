@@ -1,6 +1,6 @@
 # jenkins-up-docker-dotnet
 Bu uygulamayı Jenkins'i anlamak, test etmek ve anlamayı kolaylaştırmak amacıyla yazdım. \
-Dockerfile ve compose kullanılarak Jenkins servisini Blue Ocean ve Docker Pipeline pluginleri ile birlikte docker üzerinden dağıtılır. Ayrıca masaüstünüzdeki Docker'a Jenkins, linux containerden root yetkisiyle erişim sağlar. \
+Jenkins servisi Dockerfile ve compose kullanılarak Blue Ocean ve Docker Pipeline pluginleri ile birlikte docker üzerinden dağıtılır. Ayrıca masaüstünüzdeki Docker'a Jenkins, linux containerden root yetkisiyle erişim sağlar. \
 https://www.jenkins.io/doc/book/installing/docker/ Dökümanındaki adımları yaparsanız Docker içerisine bağımsız bir Docker kurar ve Jenkins onunla iletişime geçer. Ben bunu istemediğim için dökümana sağdık kalmayacağım. 
 
 Kurulum Gereksinimleri:
@@ -9,9 +9,9 @@ Kurulum Gereksinimleri:
  - DotnetSDK 5.0
  - Bazı kurulumlar için internet bağlantısı
  
-Kurulumdan önce jobları rahat test edebilmemiz için github'ta ve docker hub'ta bir public repository oluşturmanız gerekiyor. \
+Kurulumdan önce jobları test edebilmemiz için github'ta ve docker hub'ta bir repository oluşturmanız gerekiyor. \
 Otomatik Kurulum:
- - 'all-in-one-setup.bat' dosyasını çalıştırın. Sizden github repository adresi ve docker hub repository ismi isteyecektir.(Girdilerden sonra örnek bir mvc projesi oluşturulacak ve bunu github hesabınıza yükleyecektir. Docker hub repository ismi ise docker-compose.yml dosyası için gereklidir.)
+ - 'all-in-one-setup.bat' dosyasını çalıştırın. Sizden github repository adresi ve docker hub repository ismi isteyecektir. Burada Github adresini oluşturacağı bir örnek mvc           projesini hesabınıza push yapmak için kullanacaktır. Docker hub repository ismi ise oluşturulan projenin docker-compose.yml dosyası için gereklidir.
     örneğin => github: 'https://github.com/gokanil/test.git' ve dockerhub: 'gokanil/test'.
  - Kurulum sırasında bir sh penceresi açılacaktır. 'done' yazısını gördüğünüzde enter tuşuna basarak kuruluma devam edin.
  - Yine kurulum sırasında 'ngrok' isminde yeni bir konsol penceresi daha açılacaktır. Bu localinizdeki bir jenkins sunucusunu github webhook ile iletişim kurmasını sağlıyacak.
