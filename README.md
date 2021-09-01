@@ -9,7 +9,7 @@ Kurulum Gereksinimleri:
  - DotnetSDK 5.0
  - Bazı kurulumlar için internet bağlantısı
  
-Kurulumdan önce jobları test edebilmemiz için github'ta ve docker hub'ta bir repository oluşturmanız gerekiyor. \
+Kurulumdan önce jobları test edebilmeniz için github'ta ve docker hub'ta bir repository oluşturmanız gerekiyor. Repo oluştururken isim ve visibility ayarından başka bir şey değiştirmenize gerek yoktur. \
 Otomatik Kurulum:
 <pre>
  - 'all-in-one-setup.bat' dosyasını çalıştırın. Sizden github repository adresi ve docker hub repository ismi isteyecektir. Burada Github adresini, oluşturacağı bir örnek mvc projesini hesabınıza push etmek için kullanacaktır. Docker hub repository ismi ise oluşturulan projenin docker-compose.yml dosyası için gereklidir.
