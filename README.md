@@ -1,7 +1,7 @@
 # jenkins-up-docker-dotnet
 Bu uygulamayı Jenkins'i anlamak, test etmek ve anlamayı kolaylaştırmak amacıyla yazdım. \
-Bu uygulama Jenkins uygulamasını, Blue Ocean ve Docker Pipeline pluginleri ile birlikte docker üzerinden dağıtır. Ayrıca masaüstünüzdeki Docker'a jenkins linux containerden root yetkisiyle erişim sağlar. \
-https://www.jenkins.io/doc/book/installing/docker/ Bu dökümandaki adımları yaparsanız Docker içerisine bağımsız bir Docker kurar ve Jenkins onunla iletişime geçer. Ben bunu istemediğim için dökümana sağdık kalmayacağım. 
+Dockerfile ve compose kullanılarak Jenkins servisini Blue Ocean ve Docker Pipeline pluginleri ile birlikte docker üzerinden dağıtılır. Ayrıca masaüstünüzdeki Docker'a Jenkins, linux containerden root yetkisiyle erişim sağlar. \
+https://www.jenkins.io/doc/book/installing/docker/ Dökümanındaki adımları yaparsanız Docker içerisine bağımsız bir Docker kurar ve Jenkins onunla iletişime geçer. Ben bunu istemediğim için dökümana sağdık kalmayacağım. 
 
 Kurulum Gereksinimleri:
  - Docker Desktop (docker ve docker compose)
