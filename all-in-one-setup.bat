@@ -2,7 +2,7 @@
 SET /P github="Enter your github repository url: "
 SET /P dockerhub="Enter your dockerhub repository name: "
 ECHO Setup is started...
-docker-compose down /Q
+docker-compose down
 RMDIR jenkins_data /S/Q
 SETLOCAL EnableDelayedExpansion
 FOR /R jobs %%i IN (config.xml) DO (
