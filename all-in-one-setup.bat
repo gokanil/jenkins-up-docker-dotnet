@@ -21,7 +21,6 @@ FOR /F "tokens=* delims= " %%a IN (%%i) DO (
 ENDLOCAL
 docker-compose up -d --build
 CD ASPNETCORE-Sample-For-Jenkins
-RMDIR sample-mvc /S/Q
 CALL create-mvc-sample.bat %dockerhub% dockerhub
 CALL github-push-sample.sh "%github%"
 START %github:~0,-4%/settings/hooks
