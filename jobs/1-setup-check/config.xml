@@ -15,7 +15,7 @@
     <hudson.tasks.Shell>
       <command>docker --version
 docker-compose version	  
-docker ps --filter &quot;name=jenkins&quot;
+docker ps --filter &quot;name=jenkins
 dotnet --version</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>

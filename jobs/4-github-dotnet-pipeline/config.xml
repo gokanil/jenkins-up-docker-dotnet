@@ -13,7 +13,7 @@
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github">
-      <projectUrl>https://github.com/gokanil/test.git/</projectUrl>
+      <projectUrl><github></projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
   </properties>
@@ -30,7 +30,7 @@ pipeline {
         stage(&apos;Clone sources&apos;) {
             steps {
                      git branch: &apos;main&apos;,
-            url: &apos;https://github.com/gokanil/test.git&apos;
+            url: &apos;<github>
             }
         }
         stage(&apos;Restore&apos;) {
@@ -51,11 +51,11 @@ pipeline {
         }
                 stage(&apos;build and push&apos;) {
             steps {
-                //sh &apos;docker tag jenkins-test_jenkins speed12322/test&apos;
-                //sh &apos;docker build --tag speed12322/test .&apos;
+                //sh &apos;docker tag jenkins-test_jenkins <dockerhub>&apos;
+                //sh &apos;docker build --tag <dockerhub> .&apos;
                                     script {
                         docker.withRegistry(&apos;https://registry-1.docker.io/v2/&apos;, &apos;39892a7d-9e99-46a9-89a3-a4cd2c253075&apos;){
-                            def dockerImage = docker.build(&apos;speed12322/test&apos;)
+                            def dockerImage = docker.build(&apos;<dockerhub>&apos;)
                             dockerImage.push()
                         }
                     }

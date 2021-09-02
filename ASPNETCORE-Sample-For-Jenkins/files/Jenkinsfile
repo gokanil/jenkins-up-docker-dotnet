@@ -10,7 +10,7 @@ pipeline {
         stage('Clone sources') {
             steps {
                      git branch: 'main',
-            url: 'https://github.com/gokanil/test.git'
+            url: '<github>'
             }
         }
         stage('Restore') {
@@ -31,11 +31,11 @@ pipeline {
         }
                 stage('build and push') {
             steps {
-                //sh 'docker tag jenkins-test_jenkins speed12322/test'
-                //sh 'docker build --tag speed12322/test .'
+                //sh 'docker tag jenkins-test_jenkins <dockerhub>'
+                //sh 'docker build --tag <dockerhub> .'
                                     script {
                         docker.withRegistry('https://registry-1.docker.io/v2/', '39892a7d-9e99-46a9-89a3-a4cd2c253075'){
-                            def dockerImage = docker.image('speed12322/test')
+                            def dockerImage = docker.image('<dockerhub>')
                             dockerImage.push()
                         }
                     }

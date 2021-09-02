@@ -9,7 +9,7 @@ then
   url=$(git config --get remote.origin.url)
   if [ -z "$url" ]
   then
-    read -p "Enter your github repository url: " url
+    read -p "Enter your Github repository url: " url
     git remote add origin --master main $url
   fi
  else
@@ -17,10 +17,9 @@ then
    git remote add origin --master main $url
 fi
 
-echo "Your repository is: $url"
+echo "Your Github repository url: $url"
 git add .
 git commit -m "sh commit"
-echo "git commit"
 git branch -M main
 git push -f origin main
 echo "done"
