@@ -1,29 +1,21 @@
 @ECHO OFF
 SET /P github="Enter your github repository url: "
 SET /P dockerhub="Enter your dockerhub repository name: "
+SET githubProject=%github:~0,-4%
 ECHO Setup is started...
 docker-compose down
 RMDIR jenkins_data /S/Q
-SETLOCAL EnableDelayedExpansion
-FOR /R jobs %%i IN (config.xml) DO (
+XCOPY jobs jenkins_data\jobs /Y/I/E
+FOR /R jenkins_data\jobs %%i IN (config.xml) DO (
 IF EXIST %%i (
 ECHO %%i
-FOR %%x IN (%%i) DO SET path=%%~dpx
-set path=!path:~0,-1!
-FOR %%y IN (!path!) DO SET parent=%%~nxy
-MKDIR jenkins_data\jobs\!parent!
-FOR /F "tokens=* delims= " %%a IN (%%i) DO (
- SET str=%%a
- SET str=!str:^<github^>=%github%!
- SET str=!str:^<dockerhub^>=%dockerhub%!
- ECHO !str!>>jenkins_data\jobs\!parent!\config.xml
-)))
-ENDLOCAL
+PowerShell.exe -Command "& {(Get-Content %%i).replace('<github>', '%github%').replace('<dockerhub>', '%dockerhub%').replace('<githubproject>', '%githubProject%') | Set-Content %%i}"))
+))
 docker-compose up -d --build
 CD ASPNETCORE-Sample-For-Jenkins
 CALL create-mvc-sample.bat %dockerhub% dockerhub
 CALL github-push-sample.sh "%github%"
-START %github:~0,-4%/settings/hooks
+START %githubproject%/settings/hooks
 START bind-ngrok.bat
 ECHO -----------------------------------------------------
 ECHO After ngrok application starts, you can add webhook from https://github.com/[USER]/test/settings/hooks
