@@ -57,3 +57,15 @@ Otomatik Kurulum:
  </pre>
 </details>
 
+KAYNAKLAR
+https://www.jenkins.io/doc/book/installing/docker/
+https://youtu.be/PZjLl4QgBJ0
+https://newbedev.com/adding-net-core-to-docker-container-with-jenkins
+https://jhooq.com/requested-access-to-resource-is-denied/
+https://faun.pub/docker-build-push-with-declarative-pipeline-in-jenkins-2f12c2e43807
+https://code-maze.com/ci-jenkins-docker/
+https://docs.docker.com/compose/install/
+https://www.mshowto.org/docker-containera-rdp-ile-nasil-baglanabiliriz-bolum-1.html
+https://mehmetcantas.medium.com/net-core-3-0-projelerinde-docker-jenkins-ve-github-ile-continuous-deployment-s%C3%BCreci-part-1-afc62a09868
+https://dev.to/andresfmoya/install-jenkins-using-docker-compose-4cab
+https://adamtheautomator.com/jenkins-docker/
