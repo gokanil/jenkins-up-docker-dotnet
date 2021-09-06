@@ -31,7 +31,7 @@ Otomatik Kurulum:
  - Karşınızda oluşturduğum bazı jobları görmeniz gerekiyor. Öncelikle test-docker-version jobunu çalıştıralım. Açın ve şimdi yapılandıra basın. (Eğer hata yok ise Kurulum başarılıdır.
  - Bazı jobları test edebilmeniz için Jenkins'e github ve dockerhub yetkisi vermeniz gerekiyor.(Eğer github repositorinizi public olarak açtıysanız, github yetkisi vermek zorunda değilsiniz.)
  Github yetkisi için öncelikle token oluşturmanız gerekiyor. Token oluşturmak için 'https://github.com/ > settings > Developer settings > Personal access tokens > Generate new token' yolundan veya https://github.com/settings/tokens/new adresinden direk olarak token oluşturma sayfasına gidebilirsiniz. 
- Burada bir not girerek ve token süresini belirterek token oluşturun. Oluşturulan bu tokeni sadece 1 kez görebilirsiniz. Sayfa kapatma gibi durumlarda token yenilemeniz gerekir.
+ Burada bir not girerek ve repo kutusunu işaretleyerek token oluşturun. Oluşturulan bu tokeni sadece 1 kez görebilirsiniz. Sayfa kapatma gibi durumlarda token yenilemeniz gerekir.
  Jenkinsde yetki vermek için 'Jenkins'i Yönet > Manage Credentials > global > adding some credentials' yolunu izleyerek veya http://localhost:8080/credentials/store/system/domain/_/newCredentials adresinden direkt olarak credential ekleme sayfasına gidebilirsiniz. 
  Username yazan kısım Github kullanıcı adınız ve şifre yazan kısım ise biraz önce oluşturduğunuz tokendir. ID kısmı sadece bir isimdir. Fakat joblarda kullandığım ismi yazmanız gerekiyor 'githubCredential'. 
  Kaydedin ve dockerhub için tekrar credential oluşturmanız gerekiyor. Kullanıcı adı ve şifreniz dockerhub ile aynıdır. ID kısmına ise 'dockerhubCredential' yazmalısınız.
