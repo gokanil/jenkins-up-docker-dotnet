@@ -1,7 +1,7 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description></description>
+  <description>Docker, Docker Compose ve Dotnet kurulumlarını kontrol eder. Eğer bir sorun varsa diğer joblara geçilmeden düzeltilmelidir.</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.scm.NullSCM"/>
@@ -15,7 +15,7 @@
     <hudson.tasks.Shell>
       <command>docker --version
 docker-compose version	  
-docker ps --filter &quot;name=jenkins
+docker ps --filter &quot;name=jenkins&quot;
 dotnet --version</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>

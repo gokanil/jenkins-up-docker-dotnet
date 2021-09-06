@@ -9,17 +9,16 @@
       <options/>
     </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
   </actions>
-  <description></description>
+  <description>Aşağıdaki yazılan pipelineyi kullanarak sample-mvc projesini indirir ve dotnetsdk kullanarak testlerini yapar. Daha sonra ise proje docker kullanılarak image alınıp dockerhub hesabına yüklenir. Daha sonrada docker-compose.yml dosyasını kullnarak projeyi çalıştırır.</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github">
-      <projectUrl><github></projectUrl>
+      <projectUrl><githubproject></projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps">
-    <script>
-pipeline {
+    <script>pipeline {
       environment {
     dotnet = &apos;./sample-mvc&apos;
   }
@@ -30,7 +29,8 @@ pipeline {
         stage(&apos;Clone sources&apos;) {
             steps {
                      git branch: &apos;main&apos;,
-            url: &apos;<github>
+                     credentialsId: &apos;githubCredential&apos;,//Repo public durumunda naber credentials olup olmaması önemli değildir.
+            url: &apos;<github>&apos;
             }
         }
         stage(&apos;Restore&apos;) {
@@ -51,10 +51,10 @@ pipeline {
         }
                 stage(&apos;build and push&apos;) {
             steps {
-                //sh &apos;docker tag jenkins-test_jenkins <dockerhub>&apos;
-                //sh &apos;docker build --tag <dockerhub> .&apos;
+                //sh &apos;docker tag jenkins-test_jenkins &lt;dockerhub&gt;&apos;&apos;;
+                //sh &apos;docker build --tag &lt;dockerhub&gt; .&apos;;
                                     script {
-                        docker.withRegistry(&apos;https://registry-1.docker.io/v2/&apos;, &apos;39892a7d-9e99-46a9-89a3-a4cd2c253075&apos;){
+                        docker.withRegistry(&apos;https://registry-1.docker.io/v2/&apos;, &apos;dockerhubCredential&apos;){
                             def dockerImage = docker.build(&apos;<dockerhub>&apos;)
                             dockerImage.push()
                         }
@@ -64,7 +64,7 @@ pipeline {
         
                         stage(&apos;deploy&apos;) {
             steps {
-                    sh &quot;docker-compose up --build -d&quot;
+                    sh &apos;docker-compose up --build -d&apos;
             }
         }
     }
