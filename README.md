@@ -57,6 +57,21 @@ Otomatik Kurulum:
  </pre>
 </details>
 
+Hook Trigger Test
+Hook trigger nedir?
+ - Bir değişiklik durumunda belirtilen adresi bilgilendirme işlemidir.
+ 
+Github Hook Trigger Kullanımı:
+ - Ngrok uygulamasının çalışıyor olması gerekiyor. Eğer kapalı ise 'ASPNETCORE-Sample-For-Jenkins > bind-ngrok.bat' dosyasını çalıştırın. 
+ - Açılan konsol penceresinde Forwarding kısmındaki https ile başlayan adresi kopyalayın. https://github.com/gokanil/[USER]/settings/hooks/new ([USER] yazan kısıma kullanıcı adınızı yazmalısınız) adresindeki payload url kısmına yapıştırın ve yanına '/github-webhook/' yazın. Ayrıca content type kısmını json seçmelisiniz.
+ - Örnek olarak 4-github-dotnet-pipeline isimli jobu seçtim. jobu çalıştırın.
+ - 4-github-dotnet-pipeline isimli jobun konfigürasyonunda 'GitHub hook trigger for GITScm polling' seçeneğini işaretleyin ve kaydedin.
+ - http://localhost:5000/ adresine giderek uygulamanın mevcut halini görebilirsiniz.
+ - Hatasız bir şekilde çalıştıysa 'sample-mvc > sample-mvc > Views > Home > Index.cshtml' dosyasını açın ve en alt satırına &lt;p&gt;github webhook trigger test&lt;/p&gt; ekleyin ve kaydedin.
+ - Yaptığınız değişikliği github hesabınıza ekleyin.
+ - 4-github-dotnet-pipeline job sayfasında adımların tekrar başladığını göreceksiniz. Başarılı olmasını bekleyin.
+ - Şimdi http://localhost:5000/ adresine tekrar gidin ve yaptığınız değişikliği görmeniz gerekiyor.
+
 KAYNAKLAR \
 https://www.jenkins.io/doc/book/installing/docker/ \
 https://youtu.be/PZjLl4QgBJ0 \
