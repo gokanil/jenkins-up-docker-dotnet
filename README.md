@@ -16,10 +16,10 @@ Neden kurulum tamamen otomatik değil?
 
 Otomatik Kurulum:
 <pre>
- - 'all-in-one-setup.bat' dosyasını çalıştırın. Sizden github repository adresi ve docker hub repository ismi isteyecektir. Burada Github adresini, oluşturacağı bir örnek mvc projesini hesabınıza push etmek için kullanacaktır. Docker hub repository ismi ise oluşturulan projenin docker-compose.yml dosyası için gereklidir.
+ - 'all-in-one-setup.bat' dosyasını çalıştırın. Sizden github repository adresi ve docker hub repository ismi isteyecektir. Girdiğiniz Github adresini, kurulumun daha sonra oluşturacağı bir örnek mvc projesini, github hesabınıza yüklemek için kullanacaktır. Docker hub repository ismi ise oluşturulan projenin docker-compose.yml dosyası için gereklidir.
     örneğin => github: 'https://github.com/gokanil/test.git' ve dockerhub: 'gokanil/test'.
  - Kurulum sırasında bir sh penceresi açılacaktır. 'done' yazısını gördüğünüzde enter tuşuna basarak kuruluma devam edin.
- - Yine kurulum sırasında 'ngrok' isminde yeni bir konsol penceresi daha açılacaktır. Bu localinizdeki bir jenkins sunucusunu github webhook ile iletişim kurmasını sağlıyacak.
+ - Yine kurulum sırasında 'ngrok' isminde yeni bir konsol penceresi daha açılacaktır. Bu localinizdeki bir jenkins sunucusunu github webhook ile iletişim kurmasını sağlayacak.
  - Kurulum sizi webhook oluşturmanız için bir web sitesine yönlendirecektir. Eğer yönlendirmediyse: 'https://github.com/[USER]/test/settings/hooks'. [USER] yazan yere kullanıcı
    adınızı yazmalısınız. Ngrok konsol içerisinden size tanımlanan web adresini kopyalayın: 'https://a970-85-104-8-130.ngrok.io'.
    Bu adresi github webhook kısmındaki Payload URL kısmına yapıştırın ve yanına /github-webhook/ ekleyin. : https://a970-85-104-8-130.ngrok.io/github-webhook/
@@ -28,13 +28,20 @@ Otomatik Kurulum:
  - Jenkins'i kullanmak için http://localhost:8080/ adresine gidebiliriz. Bizden bir Administrator password istiyecektir. 'jenkins-get-first-key.bat' bize bu keyi getirecektir.
    Kopyalayın ve yapıştırın devam edelim.
  - Konsol kurulum penceresini artık kapatabiliriz. Jenkins adresinden kuruluma devam edelim.
- - Karşınızda oluşturduğum bazı jobları görmeniz gerekiyor. Öncelikle test-docker-version jobunu çalıştıralım. Açın ve şimdi yapılandıra basın. Eğer hata yok ise Kurulum tamamdır.    Diğer joblarıda test etmeye başlayabiliriz.
+ - Karşınızda oluşturduğum bazı jobları görmeniz gerekiyor. Öncelikle test-docker-version jobunu çalıştıralım. Açın ve şimdi yapılandıra basın. (Eğer hata yok ise Kurulum başarılıdır.
+ - Bazı jobları test edebilmeniz için Jenkins'e github ve dockerhub yetkisi vermeniz gerekiyor.(Eğer github repositorinizi public olarak açtıysanız, github yetkisi vermek zorunda değilsiniz.)
+ Github yetkisi için öncelikle token oluşturmanız gerekiyor. Token oluşturmak için 'https://github.com/ > settings > Developer settings > Personal access tokens > Generate new token' yolundan veya https://github.com/settings/tokens/new adresinden direk olarak token oluşturma sayfasına gidebilirsiniz. 
+ Burada bir not girerek ve repo kutusunu işaretleyerek token oluşturun. Oluşturulan bu tokeni sadece 1 kez görebilirsiniz. Sayfa kapatma gibi durumlarda token yenilemeniz gerekir.
+ Jenkinsde yetki vermek için 'Jenkins'i Yönet > Manage Credentials > global > adding some credentials' yolunu izleyerek veya http://localhost:8080/credentials/store/system/domain/_/newCredentials adresinden direkt olarak credential ekleme sayfasına gidebilirsiniz. 
+ Username yazan kısım Github kullanıcı adınız ve şifre yazan kısım ise biraz önce oluşturduğunuz tokendir. ID kısmı sadece bir isimdir. Fakat joblarda kullandığım ismi yazmanız gerekiyor 'githubCredential'. 
+ Kaydedin ve dockerhub için tekrar credential oluşturmanız gerekiyor. Kullanıcı adı ve şifreniz dockerhub ile aynıdır. ID kısmına ise 'dockerhubCredential' yazmalısınız.
+ - Artık diğer jobları test edebilirsiniz.
 </pre>
 
 <details>
 <summary>Manuel Kurulum ve Dosyalar:</summary>
  <pre>
- - Uygulama konumunda konsole penceresine 'docker-compose up -d --build' komunutu yazarak jenkins uygulamasını docker üzerinde çalıştıracaktır. <br>
+ - Uygulama konumundaki konsol penceresine 'docker-compose up -d --build' komunutu yazarak jenkins uygulamasını docker üzerinde çalıştırabilirsiniz. <br>
  - Jenkins çalışma sırasında yml dosyasınki './jenkins_data:/var/jenkins_home' sayesinde uygulama konumuna 'jenkins_data' isminde bir klasör oluştur. eğer bu klasörü oluşturmasaydık, Jenkins servisi her sıfırlandığında kurulum ve ayarlarınızı baştan yapmanız gerekirdi.<br>
  - Jenkins kurulum sırasında jobs klasörünü 'jenkins_data' klasörüne kopyalamanız lazım. Çünkü job klasörü içerisinde önceden hazırladığım örnekler vardır.<br>
  - ASPNETCORE-Sample-For-Jenkins klasörünün içerisindeki 'create-mvc-sample.bat' dosyası ile veya 'dotnet new mvc --language C# --output sample-mvc\sample-mvc --name sample-mvc -f net5.0' komutu ile sample-mvc isminde bir mvc projesi oluşturulur. Jenkins içerisindeki testleri bu proje ile yapacağız. sample-mvc projesi oluştukdan sonra files klasöründeki bütün dosyaları docker ve jenkins testlerini yapabilmemiz için sample-mvc klasörüne kopyalamalısınız.<br>
