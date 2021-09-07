@@ -72,6 +72,19 @@ Github Hook Trigger Kullanımı:
  - 4-github-dotnet-pipeline job sayfasında adımların tekrar başladığını göreceksiniz. Başarılı olmasını bekleyin.
  - Şimdi http://localhost:5000/ adresine tekrar gidin ve yaptığınız değişikliği görmeniz gerekiyor.
 
+Test Maili Gönderme:
+ - 'Jenkins'i Yönet > Sistem Konfigürasyonunu Değiştir' yolundaki E-posta Bilgilendirmesi kısmındaki gelişmişe tıklayın.
+ - örnek olarak gmail kullanacağım. SMTP sunucusu: smtp.gmail.com
+ - 'Use SMTP Authentication' kutusunu işaretleyin.
+ - Kullanıcı adı: x@gmail.com
+ - şifre: ******
+ - 'SSL kullan' kutusunu işaretleyin.
+ - SMTP Portu: 465
+ - Reply-To Address: x@gmail.com
+ - atarak konfigürasyonu test et kutusunu işaretleyin
+ - Test e-mail recipient: y@gmail.com
+ - Bunları yaptıktan sonra Test configuration tuşuna basın ve başarılı ise mail adresinizi kontrol edin.
+
 KAYNAKLAR \
 https://www.jenkins.io/doc/book/installing/docker/ \
 https://youtu.be/PZjLl4QgBJ0 \
