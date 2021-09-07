@@ -97,3 +97,4 @@ https://www.mshowto.org/docker-containera-rdp-ile-nasil-baglanabiliriz-bolum-1.h
 https://mehmetcantas.medium.com/net-core-3-0-projelerinde-docker-jenkins-ve-github-ile-continuous-deployment-s%C3%BCreci-part-1-afc62a09868 \
 https://dev.to/andresfmoya/install-jenkins-using-docker-compose-4cab \
 https://adamtheautomator.com/jenkins-docker/
+https://www.youtube.com/watch?v=MFgbp00hbVI
