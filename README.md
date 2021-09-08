@@ -61,7 +61,7 @@ Hook Trigger Test
 Hook trigger nedir?
  - Bir değişiklik durumunda belirtilen adresi bilgilendirme işlemidir.
  
-Github Hook Trigger Kullanımı:
+Github Hook Trigger Kullanımı(Github hesabınıza push işlemi yaptıkdan sonra jenkins, adımları otomatik olarak gerçekleştirecek.):
  - Ngrok uygulamasının çalışıyor olması gerekiyor. Eğer kapalı ise 'ASPNETCORE-Sample-For-Jenkins > bind-ngrok.bat' dosyasını çalıştırın. 
  - Açılan konsol penceresinde Forwarding kısmındaki https ile başlayan adresi kopyalayın. https://github.com/gokanil/[USER]/settings/hooks/new ([USER] yazan kısıma kullanıcı adınızı yazmalısınız) adresindeki payload url kısmına yapıştırın ve yanına '/github-webhook/' yazın. Ayrıca content type kısmını json seçmelisiniz.
  - Örnek olarak 4-github-dotnet-pipeline isimli jobu seçtim. jobu çalıştırın.
