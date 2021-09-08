@@ -85,7 +85,7 @@ Test Maili Gönderme:
  - Test e-mail recipient: y@gmail.com
  - Bunları yaptıktan sonra Test configuration tuşuna basın ve başarılı ise mail adresinizi kontrol edin.
  
-Jenkins script ile Encypt ve Decryp
+Jenkins script ile Encrypt ve Decrypt
  - 'Jenkins'i yönet > script konsolu' yolundan veya http://localhost:8080/script adresinden sayfayı açın.
  - ekrandaki alana aşağıdaki kodları yapıştırın.
 <pre>
