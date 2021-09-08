@@ -97,6 +97,7 @@ println("Encrypted: " + secret)
 println("Decrypted: " + Secret.fromString(secret).getPlainText()) 
 </pre>
  - Çalıştır butonuna tıklayın ve çıktıyı kontrol edin. Bu örnek komut şifreleme ve şifre çözmeyi gerçekleştiriyor.
+ - https://devops.stackexchange.com/a/8692 Buradaki script ile jenkins servisindeki bütün credentials bilgilerini şifresi çözülmiş şekilde listeleyebilirsiniz.
 
 KAYNAKLAR \
 https://www.jenkins.io/doc/book/installing/docker/ \
