@@ -84,6 +84,19 @@ Test Maili Gönderme:
  - atarak konfigürasyonu test et kutusunu işaretleyin
  - Test e-mail recipient: y@gmail.com
  - Bunları yaptıktan sonra Test configuration tuşuna basın ve başarılı ise mail adresinizi kontrol edin.
+ 
+Jenkins script ile Encypt ve Decryp
+ - 'Jenkins'i yönet > script konsolu' yolundan veya http://localhost:8080/script adresinden sayfayı açın.
+ - ekrandaki alana aşağıdaki kodları yapıştırın.
+<pre>
+import hudson.util.Secret
+
+def secret = Secret.fromString("your password").getEncryptedValue()
+
+println("Encrypted: " + secret)
+println("Decrypted: " + Secret.fromString(secret).getPlainText()) 
+</pre>
+ - Çalıştır butonuna tıklayın ve çıktıyı kontrol edin. Bu örnek komut şifreleme ve şifre çözmeyi gerçekleştiriyor.
 
 KAYNAKLAR \
 https://www.jenkins.io/doc/book/installing/docker/ \
@@ -96,5 +109,5 @@ https://docs.docker.com/compose/install/ \
 https://www.mshowto.org/docker-containera-rdp-ile-nasil-baglanabiliriz-bolum-1.html \
 https://mehmetcantas.medium.com/net-core-3-0-projelerinde-docker-jenkins-ve-github-ile-continuous-deployment-s%C3%BCreci-part-1-afc62a09868 \
 https://dev.to/andresfmoya/install-jenkins-using-docker-compose-4cab \
-https://adamtheautomator.com/jenkins-docker/
+https://adamtheautomator.com/jenkins-docker/ \
 https://www.youtube.com/watch?v=MFgbp00hbVI
