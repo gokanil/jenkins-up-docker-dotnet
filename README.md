@@ -12,7 +12,7 @@ Kurulum Gereksinimleri:
 Kurulumdan önce jobları test edebilmeniz için github'ta ve docker hub'ta bir repository oluşturmanız gerekiyor. Repo oluştururken isim ve visibility ayarından başka bir şey değiştirmenize gerek yoktur. Eğer github repositoryi private yaparsanız, jenkins üzerinden erişmek için access token oluşturmanız gerekiyor. https://github.com/settings/tokens 
 
 Neden kurulum tamamen otomatik değil?
- - Çünkü bazı adımların kurulumdan sonra incelenmesi yerine bizzat kurulum sırasında yapılmasını daha öğretici olacağını düşünüyorum.
+ - Çünkü bazı adımların kurulumdan sonra incelenmesi yerine bizzat kurulum sırasında yapılmasının daha öğretici ve güvenli olacağını düşünüyorum.
 
 Otomatik Kurulum:
 <pre>
