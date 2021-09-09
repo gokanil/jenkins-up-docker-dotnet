@@ -72,7 +72,12 @@ Github Hook Trigger Kullanımı(Github hesabınıza push işlemi yaptıkdan sonr
  - 4-github-dotnet-pipeline job sayfasında adımların tekrar başladığını göreceksiniz. Başarılı olmasını bekleyin.
  - Şimdi http://localhost:5000/ adresine tekrar gidin ve yaptığınız değişikliği görmeniz gerekiyor.
 
-Test Maili Gönderme:
+# Jenkins Mail Notification
+Jenkins içerisindeki Sistem Konfigürasyonunda 2 çeşit mail bildirim sistemi var. 'Extended E-mail Notification' ve 'E-posta Bilgilendirmesi'. 
+ - Extended E-mail Notification => Email bildirimi için esnek bir yapı sağlar. Bunlardan bazıları: Content Type, Bilgilendirme, Dosya ekleme, Kurallandırma... 
+ - E-posta Bilgilendirmesi => Sadece hatalı durumda kimlere mail atılacağını belirlediğiniz kısıtlı bir kullanım sunan sade bir yapıdadır.
+ 
+E-posta Bilgilendirmesi ile bir test maili gönderme:
  - 'Jenkins'i Yönet > Sistem Konfigürasyonunu Değiştir' yolundaki E-posta Bilgilendirmesi kısmındaki gelişmişe tıklayın.
  - örnek olarak gmail kullanacağım. SMTP sunucusu: smtp.gmail.com
  - 'Use SMTP Authentication' kutusunu işaretleyin.
