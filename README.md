@@ -75,7 +75,7 @@ Github Hook Trigger Kullanımı(Github hesabınıza push işlemi yaptıkdan sonr
 # Jenkins Mail Notification
 Jenkins içerisindeki Sistem Konfigürasyonunda 2 çeşit mail bildirim sistemi var. 'Extended E-mail Notification' ve 'E-posta Bilgilendirmesi'. 
  - Extended E-mail Notification => Email bildirimi için esnek bir yapı sağlar. Bunlardan bazıları: Content Type, Bilgilendirme, Dosya ekleme, Kurallandırma... 
- - E-posta Bilgilendirmesi => Sadece hatalı durumda kimlere mail atılacağını belirlediğiniz kısıtlı bir kullanım sunan sade bir yapıdadır.
+ - E-posta Bilgilendirmesi => Sadece hatalı durumda kimlere mail atılacağını belirlediğiniz kısıtlı bir kullanım sunan sade bir yapıdadır.(En az 1 hatalı çalışmadan sonra hatasız çalıştırırsanız, uygulamanın normale dönmesi şeklide mail alırsınız.)
  
 E-posta Bilgilendirmesi ile bir test maili gönderme:
  - 'Jenkins'i Yönet > Sistem Konfigürasyonunu Değiştir' yolundaki E-posta Bilgilendirmesi kısmındaki gelişmişe tıklayın.
