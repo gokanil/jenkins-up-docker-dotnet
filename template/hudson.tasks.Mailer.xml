@@ -1,0 +1,15 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson.tasks.Mailer_-DescriptorImpl plugin="mailer">
+  <defaultSuffix>@gmail.com</defaultSuffix>
+  <hudsonUrl>http://localhost:8080/</hudsonUrl>
+  <authentication>
+    <username>jenkinsmail.test11@gmail.com</username>
+    <password>{AQAAABAAAAAg29CzPzxzg5K9aQCK/YLfpZiZf2vdQ8C5bTqOqlyH14urntaCgZww+RsMoMrmJHtg}</password>
+  </authentication>
+  <replyToAddress>jenkinsmail.test11@gmail.com</replyToAddress>
+  <smtpHost>smtp.gmail.com</smtpHost>
+  <useSsl>true</useSsl>
+  <useTls>false</useTls>
+  <smtpPort>465</smtpPort>
+  <charset>UTF-8</charset>
+</hudson.tasks.Mailer_-DescriptorImpl>

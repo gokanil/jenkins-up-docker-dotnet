@@ -29,7 +29,7 @@
         stage(&apos;Clone sources&apos;) {
             steps {
                      git branch: &apos;main&apos;,
-                     credentialsId: &apos;githubCredential&apos;,//Repo public durumunda githubCredential olup olmaması önemli değildir.
+                     credentialsId: &apos;githubCredential&apos;,//Repo public durumunda naber credentials olup olmaması önemli değildir.
             url: &apos;<github>&apos;
             }
         }
@@ -51,6 +51,8 @@
         }
                 stage(&apos;build and push&apos;) {
             steps {
+                //sh &apos;docker tag jenkins-test_jenkins &lt;dockerhub&gt;&apos;&apos;;
+                //sh &apos;docker build --tag &lt;dockerhub&gt; .&apos;;
                                     script {
                         docker.withRegistry(&apos;https://registry-1.docker.io/v2/&apos;, &apos;dockerhubCredential&apos;){
                             def dockerImage = docker.build(&apos;<dockerhub>&apos;)

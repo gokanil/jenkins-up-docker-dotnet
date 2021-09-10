@@ -2,6 +2,7 @@
 SET /P github="Enter your github repository url: "
 SET /P dockerhub="Enter your dockerhub repository name: "
 SET githubProject=%github:~0,-4%
+SET /P email="Enter your E-Mail for notofications: "
 ECHO Setup is started...
 docker-compose down
 RMDIR jenkins_data /S/Q
@@ -9,7 +10,7 @@ XCOPY jobs jenkins_data\jobs /Y/I/E
 FOR /R jenkins_data\jobs %%i IN (config.xml) DO (
 IF EXIST %%i (
 ECHO %%i
-PowerShell.exe -Command "& {(Get-Content %%i).replace('<github>', '%github%').replace('<dockerhub>', '%dockerhub%').replace('<githubproject>', '%githubProject%') | Set-Content %%i}"))
+PowerShell.exe -Command "& {(Get-Content %%i).replace('<github>', '%github%').replace('<dockerhub>', '%dockerhub%').replace('<githubproject>', '%githubProject%').replace('<email>', '%email%') | Set-Content %%i}"))
 ))
 docker-compose up -d --build
 CD ASPNETCORE-Sample-For-Jenkins
