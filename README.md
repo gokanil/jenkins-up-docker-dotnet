@@ -1,3 +1,16 @@
+Jenkins kurulum uygulamasına ve döküman geliştirmesine ARA vermiş bulunmaktayım. \
+  yapılacak listesi:
+   - sh dosyasını düzenlenecek.
+   - 8080 ve 50000 portları araştırılacak.
+   - hangi jobların hangi pluginlere ihtiyaç duyduğu yazılacak.
+   - 4-github-dotnet-pipeline isimli jobda dotnet işlemlerini yaptıktan sonra dockerfile yüzünden tekrar dotnet işlemleri yapmış oluyor.
+   - docker kullanan joblarda farklı isimlerde image oluşturuyor.
+   - Jenkins portal dili ingilizce yapılacak.
+   - pipeline kodlarında refactoring yapılacak.
+   - yeni joblar eklenecek.
+   - job kullanarak zamanlama test edilecek.
+   - manuel kurulum açıklamaları güncellenecek.
+
 # jenkins-up-docker-dotnet
 Bu uygulamayı Jenkins'i anlamak, test etmek ve anlamayı kolaylaştırmak amacıyla yazdım. \
 Jenkins servisi Dockerfile ve compose kullanılarak Blue Ocean ve Docker Pipeline pluginleri ile birlikte docker üzerinden dağıtılır. Ayrıca masaüstünüzdeki Docker'a Jenkins, linux containerden root yetkisiyle erişim sağlar. \
